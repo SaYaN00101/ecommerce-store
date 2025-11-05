@@ -106,7 +106,7 @@ ecommerce-store/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ecommerce-store.git
+   git clone https://github.com/SaYaN00101/ecommerce-store.git
    cd ecommerce-store
    ```
 
@@ -171,8 +171,8 @@ For production use, please review and customize security features accordingly.
 
 ## 👤 Author
 
-Your Name
-- GitHub:(https://github.com/SaYaN00101)
+Sayan Jagulia
+- GitHub: https://github.com/SaYaN00101
 - LinkedIn: www.linkedin.com/in/sayan-jagulia-s1y1n 
 
 ---
