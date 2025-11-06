@@ -3,8 +3,8 @@
 [![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-Web-blue.svg)](https://github.com/yourusername/ecommerce-store)
-[![Status](https://img.shields.io/badge/Status-Active-green.svg)](https://github.com/yourusername/ecommerce-store)
+[![Platform](https://img.shields.io/badge/Platform-Web-blue.svg)](https://github.com/SaYaN00101/ecommerce-store)
+[![Status](https://img.shields.io/badge/Status-Active-green.svg)](https://github.com/SaYaN00101/ecommerce-store)
 
 ## 📋 Overview
 
