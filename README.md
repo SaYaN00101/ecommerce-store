@@ -6,6 +6,10 @@
 [![Platform](https://img.shields.io/badge/Platform-Web-blue.svg)](https://github.com/SaYaN00101/ecommerce-store)
 [![Status](https://img.shields.io/badge/Status-Active-green.svg)](https://github.com/SaYaN00101/ecommerce-store)
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f734258b-27d7-4933-ab09-d6e011537da1" alt="Password Manager Banner" width="800"/>
+</div>
+
 ## 📋 Overview
 
 A robust, feature-rich e-commerce platform built with PHP and MySQL, designed to provide a seamless online shopping experience. This fully functional project features user-facing shopping capabilities and a secure admin panel, supporting comprehensive e-commerce operations from product browsing to order management.
