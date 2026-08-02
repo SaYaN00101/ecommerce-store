@@ -13,7 +13,7 @@ function render_product_card(array $row, string $base_path = ''): void {
     echo "
     <div class='col-md-4 mb-2'>
       <div class='card'>
-        <img src='{$base_path}admin_area/product_images/{$image1}' class='card-img-top' alt='Product Image'>
+        <img src='{$base_path}images/product_images/{$image1}' class='card-img-top' alt='Product Image'>
         <div class='card-body'>
           <h5 class='card-title'>{$title}</h5>
           <p class='card-text'>{$description}</p>
@@ -167,7 +167,7 @@ function view_details(): void {
         echo "
             <div class='col-md-4 mb-2'>
               <div class='card'>
-                <img src='./admin_area/product_images/{$img1}' class='card-img-top' alt='Product Image'>
+                <img src='./images/product_images/{$img1}' class='card-img-top' alt='Product Image'>
                 <div class='card-body'>
                   <h5 class='card-title'>{$title}</h5>
                   <p class='card-text'>{$desc}</p>
@@ -184,10 +184,10 @@ function view_details(): void {
                   <h4 class='text-center text-info md-5'>Related Products</h4>
                 </div>
                 <div class='col-md-6'>
-                  <img src='admin_area/product_images/{$img2}' class='card-img-top' alt='Product Image'>
+                  <img src='images/product_images/{$img2}' class='card-img-top' alt='Product Image'>
                 </div>
                 <div class='col-md-6'>
-                  <img src='admin_area/product_images/{$img3}' class='card-img-top' alt='Product Image'>
+                  <img src='images/product_images/{$img3}' class='card-img-top' alt='Product Image'>
                 </div>
               </div>
             </div>

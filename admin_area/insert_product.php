@@ -60,7 +60,7 @@ if (isset($_POST['insert_product'])) {
             if ($all_valid) {
                 // Move images
                 foreach ($images as $i => $img) {
-                    move_uploaded_file($img['tmp'], __DIR__ . "/product_images/" . $img['name']);
+                    move_uploaded_file($img['tmp'], __DIR__ . "/../images/product_images/" . $img['name']);
                 }
 
                 $stmt = mysqli_prepare($con,

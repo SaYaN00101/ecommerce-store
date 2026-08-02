@@ -55,7 +55,7 @@ if (isset($_POST['update_product'])) {
                 goto render_form;
             }
             $new_image1 = bin2hex(random_bytes(8)) . '.' . $ext;
-            move_uploaded_file($upload_file['tmp_name'], __DIR__ . "/product_images/{$new_image1}");
+            move_uploaded_file($upload_file['tmp_name'], __DIR__ . "/../images/product_images/{$new_image1}");
         }
 
         $upd = mysqli_prepare($con,
@@ -161,7 +161,7 @@ render_form:
             <input type="file" name="product_image1" class="form-control"
                    accept=".jpg,.jpeg,.png,.gif,.webp">
             <?php if ($image1): ?>
-                <img src="./product_images/<?= htmlspecialchars($image1, ENT_QUOTES, 'UTF-8') ?>"
+                <img src="../images/product_images/<?= htmlspecialchars($image1, ENT_QUOTES, 'UTF-8') ?>"
                      class="mt-2" style="width:100px;">
             <?php endif; ?>
         </div>

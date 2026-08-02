@@ -36,7 +36,7 @@ include('../includes/connect.php');
                 echo "<tr>
                     <td>{$number}</td>
                     <td>{$row['product_title']}</td>
-                    <td><img src='product_images/{$row['product_image1']}' class='img-thumbnail' style='width: 80px; height: auto;'></td>
+                    <td><img src='../images/product_images/{$row['product_image1']}' class='img-thumbnail' style='width: 80px; height: auto;'></td>
                     <td>₹{$row['product_price']}</td>
                     <td>{$row['product_keywords']}</td>
                     <td>{$row['date']}</td>
