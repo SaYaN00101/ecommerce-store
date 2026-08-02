@@ -12,11 +12,14 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-// Fetch user info from DB
-$username = $_SESSION['username'];
-$user_query = "SELECT * FROM `user_table` WHERE user_name = '$username'";
-$user_result = mysqli_query($con, $user_query);
-$user_data = mysqli_fetch_assoc($user_result);
+// Fetch user info from DB using prepared statement
+$username  = $_SESSION['username'];
+$user_stmt = mysqli_prepare($con, "SELECT * FROM `user_table` WHERE user_name = ?");
+mysqli_stmt_bind_param($user_stmt, 's', $username);
+mysqli_stmt_execute($user_stmt);
+$user_result = mysqli_stmt_get_result($user_stmt);
+$user_data   = mysqli_fetch_assoc($user_result);
+mysqli_stmt_close($user_stmt);
 $user_image = $user_data['user_image'] ?? 'default.png';
 ?>
 
@@ -70,7 +73,7 @@ $user_image = $user_data['user_image'] ?? 'default.png';
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link active" href="../index.php">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="../display_all.php">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="../user_area/user_registation.php">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="../user_area/user_registration.php">Register</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
           <li class="nav-item">
             <a class="nav-link" href="../cart.php">
@@ -95,18 +98,13 @@ $user_image = $user_data['user_image'] ?? 'default.png';
     <ul class="navbar nav me-auto">
               <?php
         if (!isset($_SESSION['username'])) {
-          echo "<li class='nav-item'>
-        <a class='nav-link' href='./profile.php'>
-          <i class='fa-solid fa-user me-1'></i> Welcome </a></li>";
-          echo "<li class='nav-item'><a class='nav-link' href='./user_area/user_login.php'>Login</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href='profile.php'><i class='fa-solid fa-user me-1'></i> Welcome</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href='user_login.php'>Login</a></li>";
         } else {
-          echo "<li class='nav-item'>
-        <a class='nav-link' href='./profile.php'>
-          <i class='fa-solid fa-user me-1'></i> Welcome " . $_SESSION['username'] . "
-        </a>
-      </li>";
+          $safe_user = htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');
+          echo "<li class='nav-item'><a class='nav-link' href='profile.php'><i class='fa-solid fa-user me-1'></i> Welcome " . $safe_user . "</a></li>";
 
-          echo "<li class='nav-item'><a class='nav-link' href='./user_area/logout.php'>Logout</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
         }
         ?>
     </ul>
@@ -126,7 +124,7 @@ $user_image = $user_data['user_image'] ?? 'default.png';
       <a href="profile.php?edit_account">Edit Account</a>
       <a href="profile.php?my_orders">My Orders</a>
       <a href="profile.php?delete_account">Delete Account</a>
-      <a href="../user_area/logout.php">Logout</a>
+      <a href="logout.php">Logout</a>
     </div>
 
     <!-- Main Section -->

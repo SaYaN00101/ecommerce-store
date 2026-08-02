@@ -1,4 +1,5 @@
 <?php
+include('admin_guard.php');
 include('../includes/connect.php');
 ?>
 

@@ -1,7 +1,8 @@
 <?php
-//includes sql srver connection
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include('includes/connect.php');
-//includes all funcations 
 include('function/common_function.php');
 ?>
 
@@ -38,12 +39,12 @@ include('function/common_function.php');
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="display_all.php">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="./user_area/user_registration.php">Register</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+              <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">Total Price: ₹100</a></li>
+            <li class="nav-item"><a class="nav-link" href="./user_area/checkout.php">Total Price: <?php total_cart_price(); ?>/-</a></li>
           </ul>
           <!-- search -->
           <form class="d-flex" action="" method="get">

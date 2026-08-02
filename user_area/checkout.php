@@ -23,32 +23,14 @@ include(__DIR__ . '/../includes/connect.php');
   <link rel="stylesheet" href="../sty.css">
 
   <style>
-    body {
-      overflow-x: hidden;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .main-content {
-      flex: 1;
-    }
-  </style>
-</head>
-<body>
-  <div class="container-fluid p-0 main-content">
-    <!-- First Navbar -->
-    <nav class="navbar navbar-expand-lg bg-info">
-      <div class="container-fluid">
-        <img src="../images/icon.png" alt="ICON" class="logo">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
+        } else {
+          $safe_user = htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link active" href="../index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="../display_all.php">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="user_registation.php">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="user_registration.php">Register</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
           </ul>
           <form class="d-flex" action="../search_product.php" method="get">
@@ -64,18 +46,31 @@ include(__DIR__ . '/../includes/connect.php');
       <ul class="navbar nav me-auto">
                       <?php
         if (!isset($_SESSION['username'])) {
-          echo "<li class='nav-item'>
-        <a class='nav-link' href='./profile.php'>
-          <i class='fa-solid fa-user me-1'></i> Welcome </a></li>";
-          echo "<li class='nav-item'><a class='nav-link' href='./user_area/user_login.php'>Login</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href='profile.php'><i class='fa-solid fa-user me-1'></i> Welcome</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href='user_login.php'>Login</a></li>";
         } else {
-          echo "<li class='nav-item'>
-        <a class='nav-link' href='./profile.php'>
-          <i class='fa-solid fa-user me-1'></i> Welcome " . $_SESSION['username'] . "
-        </a>
-      </li>";
-
-          echo "<li class='nav-item'><a class='nav-link' href='./user_area/logout.php'>Logout</a></li>";
+          $safe_user = htmlspecialchars(
+              
+              
+              
+              
+              
+              
+              
+            
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          $_SESSION['username'], ENT_QUOTES, 'UTF-8');
+          echo "<li class='nav-item'><a class='nav-link' href='profile.php'><i class='fa-solid fa-user me-1'></i> Welcome " . $safe_user . "</a></li>";
+          echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
         }
         ?>
       </ul>
@@ -83,8 +78,8 @@ include(__DIR__ . '/../includes/connect.php');
 
     <!-- Page Header -->
     <div class="bg-light text-center p-3">
-      <h3></h3>
-      <p></p>
+      <h3>Checkout</h3>
+      <p>Please login or proceed with payment to complete your order</p>
     </div>
 
     <!-- Content -->
@@ -96,9 +91,9 @@ include(__DIR__ . '/../includes/connect.php');
               if (!isset($_SESSION['return_url'])) {
                 $_SESSION['return_url'] = 'checkout.php';
               }
-              include('user_login.php');
+              include(__DIR__ . '/_login_fragment.php');
             } else {
-              include('payment.php');
+              include(__DIR__ . '/payment.php');
             }
           ?>
         </div>
